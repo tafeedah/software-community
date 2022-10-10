@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>
+        name:
+        <input type="text" id="dd" />
+    </p>
+    <p>
+        age:
+        <input type="number" id="age" />
+    </p>
+    <p>
+        number:
+        <input type="number" id="number" />
+    </p>
+    <button onclick="sign()">save</button>
+    <div id="container"></div>
+    <script>
+        var name = document.getElementById("dd")
+        var age = document.getElementById("age")
+        var number = document.getElementById("number")
+        var index = 0
+        var person = []
+
+        function sign() {
+            person.push({
+                dd: dd.value,
+                age: age.value,
+                number: number.value,
+            })
+            display();
+            console.log(person)
+
+            dd.value = ""
+            age.value = ""
+            number.value = ""
+        }
+
+        function display() {
+            var items = document.getElementById("items")
+            for (count = 1; count <= person.length; count++) {
+                items = items += "<input type='text' value='" + person[count - 1].dd + "'/>"
+                items = items += "<input type='text' value='" + person[count - 1].age + "'/>"
+                items = items += "<input type='text' value='" + person[count - 1].number + "'/>"
+            }
+            var array = document.getElementById("container")
+            array.innerHTML = (items)
+        }
+    </script>
+</body>
+
+</html>
