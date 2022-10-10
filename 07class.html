@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ppppppp</title>
+</head>
+<body>
+	<label for="sName">Student Name:<input type="text" name="sName" id="sName" style="display: block"></label>
+	<label for="sAge">Student Age:<input type="number" name="sAge" id="sAge" style="display: block"></label>
+	<label for="sClass">Student Class:<input type="text" name="sClass" id="sClass" style="display: block"></label><br>
+	<button onclick="save()">save</button>
+	<button onclick="del()">Delete</button>
+	<button onclick="first()">first</button>
+	<button onclick="last()">last</button>
+	<button onclick="next()">next</button>
+	<button onclick="previous()">previous</button>
+	<script type="text/javascript">
+	var studentName=document.getElementById("sName");
+var studentAge=document.getElementById("sAge");
+var studentClass=document.getElementById("sClass");		
+var studentsInfo=[];
+var index=0;
+
+function save(){
+	studentsInfo.push({
+		studentName:sName.value,studentAge:sAge.value,studentClass:sClass.value,
+	});
+	index++;
+	console.log(studentsInfo)
+
+	        sName.value = ""
+            sAge.value = ""
+            sClass.value = ""
+}
+function del(){
+   studentsInfo.splice(index,1)
+            sName.value = ""
+            sAge.value = ""
+            sClass.value = ""
+}
+function first(){
+	if(index = 0){
+
+	}else{
+
+            sName.value =studentsInfo[index].sName
+            sAge.value = studentsInfo[index].sAge
+            sClass.value = studentsInfo[index].sClass
+	}
+}
+
+function last(){
+	if(index=studentsInfo.length-1){
+
+	}else{
+		    index=studentsInfo.length-1
+			sName.value =studentsInfo[index].sName
+            sAge.value = studentsInfo[index].sAge
+            sClass.value = studentsInfo[index].sClass
+
+	}
+}
+
+function next(){
+	if(index>=studentsInfo.length-1){
+		
+	}else{
+     index=parseInt(studentsInfo.length+1)
+
+            sName.value =studentsInfo[index].sName
+            sAge.value = studentsInfo[index].sAge
+            sClass.value = studentsInfo[index].sClass
+
+	}
+}
+
+function previous(){
+	if(index<=0){
+		
+	}else{
+     index=parseInt(studentsInfo.length-1)
+     
+            sName.value =studentsInfo[index].sName
+            sAge.value = studentsInfo[index].sAge
+            sClass.value = studentsInfo[index].sClass
+
+	}
+}
+
+
+
+
+
+
+
+
+	</script>
+
+
+</body>
+</html>
