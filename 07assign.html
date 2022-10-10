@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Students Info</title>
+</head>
+<body>
+	<label for="sName">Student Name:<input type="text" name="sName" id="sName" style="display: block"></label>
+	<label for="sAge">Student Age:<input type="number" name="sAge" id="sAge" style="display: block"></label>
+	<label for="sClass">Student Class:<input type="text" name="sClass" id="sClass" style="display: block"></label><br>
+	<button onclick="save()">Save</button>
+	<button onclick="first()">First</button>
+	<button onclick="next()">Next</button>
+	<button onclick="previous()">Previous</button>
+	<button onclick="last()">last</button>
+	<button onclick="del()">Delete</button>
+	<div id="content"></div>
+
+	<script type="text/javascript">
+var studentName=document.getElementById("sName");
+var studentAge=document.getElementById("sAge");
+var studentClass=document.getElementById("sClass");		
+var studentsInfo=[];
+let currentPosition=0;
+var items = [];
+function save(){
+	studentsInfo.push({
+		studentName:sName.value,studentAge:sAge.value,studentClass:sClass.value,
+	});
+	currentPosition++;
+	console.log(studentsInfo);
+
+	        sName.value = ""
+            sAge.value = ""
+            sClass.value = ""
+}
+
+function first(){
+	if(currentPosition <=0 ){
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentName + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentAge + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentClass + "'/><br>"
+	}else{
+		currentPosition=0;
+		    items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentName + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentAge + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentClass + "'/><br>"
+	}
+	document.getElementById("content").innerHTML = (items);
+}
+function last(){
+	if(currentPosition >=studentsInfo.length-1 ){
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentName + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentAge + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentClass + "'/><br>"
+	}else{
+		currentPosition=studentsInfo.length-1;
+		    items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentName + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentAge + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentClass + "'/><br>"
+	}
+	document.getElementById("content").innerHTML = (items);
+
+
+}
+
+function next(){
+   if(currentPosition<studentsInfo.length-1){
+   	currentPosition++;
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentName + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentAge + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentClass + "'/><br>"
+	}else{
+		   alert("you have reached the end of your list")
+	}
+	document.getElementById("content").innerHTML = (items);
+}
+
+function previous(){
+	if(currentPosition>0){
+   	currentPosition--;
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentName + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentAge + "'/>"
+            items = items += "<input type='text' value='" + studentsInfo[currentPosition].studentClass + "'/><br>"
+	}else{
+		   alert("you have reached the end of your list")
+	}
+	document.getElementById("content").innerHTML = (items);
+}
+
+function del(){
+studentsInfo.splice(currentPosition,1);
+            items = items += "<input type='text' value='error'/>"
+            items = items += "<input type='text' value='error'/>"
+            items = items += "<input type='text' value='error'/><br>"
+          
+ 
+}
+
+
+	</script>
+
+</body>
+</html>
